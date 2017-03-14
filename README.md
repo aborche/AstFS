@@ -9,7 +9,7 @@ mpfuse.py - multiprocessing astfs daemon
 
 Just enable AMI in Asterisk and add next lines to manager.conf:
 
-======================================
+```
 [general]
 enabled = yes
 port = 5038
@@ -21,7 +21,8 @@ debug=on
 secret=Agi02022016
 read = all,system,call,log,verbose,agent,user,config,dtmf,reporting,cdr,dialplan,test
 write = all,system,call,agent,user,config,command,reporting,originate,message,test
-======================================
+```
+
 
 Change config directory path, mount path, debug and daemon options if you need in mpfuse.py.
 Then run 'python mpfuse.py'
@@ -29,6 +30,7 @@ Then run 'python mpfuse.py'
 For stop process just run 'umount <mountpoint>
 
 ======== basicfuse.py output =========
+```
 # tree /mnt
 /mnt
 ├── customchmodfile
@@ -44,10 +46,11 @@ For stop process just run 'umount <mountpoint>
     ├── friend
     ├── peer
     └── user
+```
 ======== basicfuse.py output =========
 
 ======== mpfuse.py output =========
-
+```
 # tree  /mnt/
 /mnt/
 ├── config -> /usr/local/etc/asterisk
@@ -112,4 +115,7 @@ For stop process just run 'umount <mountpoint>
             ├── credentials
             ├── full
             └── huntgroups
+```
 ======== mpfuse.py output =========
+
+
