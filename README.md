@@ -3,9 +3,9 @@ Asterisk Virtual FileSystem
 
 Asterisk configuration wrapper to virtual file system
 
-basicfuse.py - basic demo class for make vfs
-mpfuse.py - multiprocessing astfs daemon
+basicfuse.py - basic demo class for making simple vfs
 
+mpfuse.py - multiprocessing astfs daemon
 
 Just enable AMI in Asterisk and add next lines to manager.conf:
 
