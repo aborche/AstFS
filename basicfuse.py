@@ -47,7 +47,7 @@ if __name__ == '__main__':
         'customchmodfile': [{'st_mode': 0x8000 | int('0600', 8), 'st_uid': 0, 'st_gid': 0}, 'contents of customchmodfile'],
         'nulldir': {},
         'nullfile': [{}, ''],
-        'demotreeclass': fsstruct.BasicTree('/demotreeclass', mpd),
+        'demotreeclass': fsstruct.BasicTree('/demotreeclass', mpd, ''),
         'tree': {'peer': [{'st_mode': 0x8000 | int('0644', 8)}, 'contents of peer'], 'friend': {}, 'user': {}}
     }
 
