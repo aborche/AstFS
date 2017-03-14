@@ -23,11 +23,16 @@ read = all,system,call,log,verbose,agent,user,config,dtmf,reporting,cdr,dialplan
 write = all,system,call,agent,user,config,command,reporting,originate,message,test
 ```
 
-
 Change config directory path, mount path, debug and daemon options if you need in mpfuse.py.
-Then run 'python mpfuse.py'
+Then run 
+```
+# python mpfuse.py
+```
 
-For stop process just run 'umount <mountpoint>
+For stop process just run 
+```
+# umount <mountpoint>
+```
 
 ======== basicfuse.py output =========
 ```
