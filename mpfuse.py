@@ -160,43 +160,12 @@ if __name__ == '__main__':
         'config': [fsstruct.stat_info['link'], '/usr/local/etc/asterisk'],
         'users':
             {
-#                'sipusers'	: fsstruct.BasicTree('/users/sip', mpd, 'realtimesipusers'),
-#                'sipfriends'	: fsstruct.BasicTree('/users/sip', mpd, 'realtimesipfriends'),
                 'sipusers'	: realtime.RealTimeSIPTree('/users/sipusers', mpd, 'realtimesipusers'),
                 'sipfriends'	: realtime.RealTimeSIPTree('/users/sipfriends', mpd, 'realtimesipfriends'),
                 'iax2': realtime.RealTimeIAXTree('/users/iax2', mpd, 'usersiax2')
-#                'iax2'	: fsstruct.BasicTree('/users/iax2', mpd, '')
             },
     }
-    '''
-    rootorig = {
-        'peers':
-            {
-                'sip':
-                {'tree': fsstruct.BasicTree('/peers/sip/tree', mpd),
-                 'test': fsstruct.BasicTree('/peers/sip/test', mpd),
-                 'realtime': realtime.RealTimeSIPTree('/peers/sip/realtime', mpd),
-                 'by-type': {'peer': {},
-                             'friend': {},
-                             'user': {}},
-                 'by-status': {'online': {}, 'offline': {}},
-                 'by-context': {'default': {}, 'public': {}, 'incoming': {}},
-                 '1234': [{'st_mode': 0x8000 | int('0644', 8)}, 'contents of file'],
-                 '2345': [fsstruct.stat_info['link'], '/tmp']},
-                'iax2':
-                {'realtime': realtime.RealTimeIAXTree('/peers/iax2/realtime', mpd)}
-            },
-        'config': [fsstruct.stat_info['link'], '/usr/local/etc/asterisk'],
-        'users':
-            {
-                'sip'	: fsstruct.BasicTree('/users/sip', mpd),
-                'iax2'	: fsstruct.BasicTree('/users/iax2', mpd)
-            },
-        'help': [fsstruct.stat_info['file'], fusefscore.returnhelp],
-        'help1': [{}, ''],
-        'demo': fsstruct.BasicTree('/demo', mpd)
-    }
-    '''
+
     pcore = mp.current_process()
     logger.info('[fusefsprocess] started. PID:%s', pcore.pid)
     mpd['fusefsprocess'] = pcore.pid
@@ -211,16 +180,9 @@ if __name__ == '__main__':
         '/mnt',
         '-f',
         '-oac_attr_timeout=1,remember=1,allow_other,entry_timeout=1'], errex=1)
-#    server.root = '/home/admin/projects/asterisk'
-#    print vars(server.fuse_args)
     server.logger = logger
-#    server.mountpoint = server.fuse_args.mountpoint
     server.root = root
     server.mpd = mpd
-#    import sys
-#    for i in sys.modules.items():
-#        print i
-#    print sys.modules.items()
     server.main()
     amip.exit.set()
     logger.info('[fusefsprocess] main stopped. PID:%s', pcore.pid)
