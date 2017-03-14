@@ -36,21 +36,23 @@ For stop process just run
 
 ======== basicfuse.py output =========
 ```
-# tree /mnt
-/mnt
-├── customchmodfile
-├── demotreeclass
-│   ├── help
-│   └── info
-├── helpfilefunc
-├── link_to_tmp -> /tmp
-├── nulldir
-├── nullfile
-├── staticfile
-└── tree
-    ├── friend
-    ├── peer
-    └── user
+# tree -ghpu /mnt/
+/mnt/
+├── [-rw------- root     wheel      27]  customchmodfile
+├── [drwxr-xr-x asterisk asterisk  512]  demotreeclass
+│   ├── [-rw-r--r-- asterisk asterisk   12]  help
+│   └── [-rw-r--r-- asterisk asterisk   12]  info
+├── [-rw-r--r-- asterisk asterisk   33]  helpfilefunc
+├── [lrwxr-xr-x asterisk asterisk    4]  link_to_tmp -> /tmp
+├── [drwxr-xr-x asterisk asterisk  512]  nulldir
+├── [-rw-r--r-- asterisk asterisk    0]  nullfile
+├── [-rw-r--r-- asterisk asterisk   22]  staticfile
+└── [drwxr-xr-x asterisk asterisk  512]  tree
+    ├── [drwxr-xr-x asterisk asterisk  512]  friend
+    ├── [-rw-r--r-- asterisk asterisk   16]  peer
+    └── [drwxr-xr-x asterisk asterisk  512]  user
+
+6 directories, 7 files
 ```
 ======== basicfuse.py output =========
 
